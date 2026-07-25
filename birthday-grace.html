@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Grace ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --burgundy: #8B1538;
+            --cream: #F5F3F0;
+            --rose-gold: #D4A574;
+            --soft-pink: #E8B4C8;
+            --white: #FFFFFF;
+            --dark: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--burgundy) 0%, #5a0f2a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            height: 100vh;
+            max-height: 900px;
+            background: var(--cream);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .screen.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== SCREEN 1: Opening ===== */
+        .screen-opening {
+            background: linear-gradient(135deg, var(--burgundy) 0%, #6a0e2a 100%);
+            color: var(--white);
+        }
+
+        .opening-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .opening-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 60px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            animation: slideUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            background: var(--rose-gold);
+            color: var(--white);
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            animation: slideUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            background: #e5b584;
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* ===== SCREEN 2: Message ===== */
+        .screen-message {
+            background: linear-gradient(180deg, var(--cream) 0%, #f9f6f3 100%);
+            color: var(--dark);
+            overflow-y: auto;
+        }
+
+        .message-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            max-width: 100%;
+            animation: cardSlideIn 0.8s ease-out;
+        }
+
+        @keyframes cardSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .message-greeting {
+            font-size: 1.3rem;
+            color: var(--burgundy);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .message-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .message-text:first-of-type {
+            font-style: italic;
+            color: var(--rose-gold);
+        }
+
+        .message-signature {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            color: var(--burgundy);
+            font-weight: 600;
+        }
+
+        /* ===== SCREEN 3: Gallery ===== */
+        .screen-gallery {
+            background: var(--cream);
+            color: var(--dark);
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .gallery-title {
+            font-size: 1.4rem;
+            color: var(--burgundy);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .gallery-caption {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .gallery-container {
+            width: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            display: flex;
+            gap: 15px;
+            padding: 0 10px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-container::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .gallery-container::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: var(--rose-gold);
+            border-radius: 10px;
+        }
+
+        .gallery-image {
+            min-width: 180px;
+            height: 220px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-placeholder {
+            min-width: 180px;
+            height: 220px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--soft-pink) 0%, var(--rose-gold) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== SCREEN 4: Finale ===== */
+        .screen-finale {
+            background: linear-gradient(135deg, var(--burgundy) 0%, #5a0f2a 100%);
+            color: var(--white);
+        }
+
+        .finale-message {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .finale-text {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== FLOATING HEARTS ===== */
+        .heart-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: float 4s infinite ease-in;
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 0.6;
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-300px) translateX(var(--tx));
+            }
+        }
+
+        /* ===== CONFETTI ===== */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--rose-gold);
+            opacity: 0.8;
+        }
+
+        .confetti-burst {
+            animation: confetti-fall 3s ease-in forwards;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(500px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ===== FIREWORKS ===== */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .firework-burst {
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--fx), var(--fy));
+                opacity: 0;
+            }
+        }
+
+        /* ===== NAVIGATION BUTTONS ===== */
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .nav-btn {
+            background: var(--rose-gold);
+            color: var(--white);
+            border: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+        }
+
+        .nav-btn.active {
+            opacity: 1;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .container {
+                max-width: 100%;
+                height: 100vh;
+                border-radius: 0;
+            }
+
+            .opening-title {
+                font-size: 2rem;
+            }
+
+            .message-card {
+                padding: 30px 20px;
+            }
+
+            .gallery-image,
+            .gallery-placeholder {
+                min-width: 150px;
+                height: 180px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Screen 1: Opening -->
+        <div class="screen screen-opening active">
+            <div class="heart-container" id="openingHearts"></div>
+            <h1 class="opening-title">✨ Happy Birthday, Grace ❤️ ✨</h1>
+            <p class="opening-subtitle">A special day for a very special person</p>
+            <button class="btn" onclick="goToScreen(1)">🎁 Open My Message</button>
+        </div>
+
+        <!-- Screen 2: Message -->
+        <div class="screen screen-message">
+            <div class="heart-container" id="messageHearts"></div>
+            <div class="message-card">
+                <div class="message-greeting">My Dear Grace ❤️</div>
+                <div class="message-text">Happy Birthday to you! 🎂✨</div>
+                <div class="message-text">Today, I celebrate you — your beautiful heart, your smile, your strength, and the wonderful person you are.</div>
+                <div class="message-text">Even though we have only shared a few months together, I truly appreciate the moments we've created, the conversations we've had, the laughter we've shared, and the joy you bring into my life.</div>
+                <div class="message-text">I pray that this new year of your life brings you endless happiness, good health, success, peace of mind, and beautiful opportunities. May your dreams become reality and may you always have reasons to smile.</div>
+                <div class="message-text">Thank you for being the amazing person you are. I'm grateful to have you in my life, and I look forward to creating more beautiful memories with you.</div>
+                <div class="message-text">Today is your day, Grace. Enjoy every moment. ❤️</div>
+                <div class="message-signature">Happy Birthday, my dear. 🎉❤️</div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="goToScreen(0)"></button>
+                <button class="nav-btn" onclick="goToScreen(1)"></button>
+                <button class="nav-btn" onclick="goToScreen(2)"></button>
+                <button class="nav-btn" onclick="goToScreen(3)"></button>
+            </div>
+        </div>
+
+        <!-- Screen 3: Gallery -->
+        <div class="screen screen-gallery">
+            <div class="heart-container" id="galleryHearts"></div>
+            <h2 class="gallery-title">Beautiful Moments 📸</h2>
+            <p class="gallery-caption">A few special moments, and many more memories to create ❤️</p>
+            <div class="gallery-container" id="galleryContainer">
+                <img src="image_13_.png" class="gallery-image" alt="Us">
+                <img src="image_14_.png" class="gallery-image" alt="Grace">
+                <img src="image_12_.png" class="gallery-image" alt="Grace">
+                <img src="image_10_.png" class="gallery-image" alt="Us together">
+                <img src="image_6_.png" class="gallery-image" alt="Grace">
+                <img src="image_11_.png" class="gallery-image" alt="Grace">
+                <img src="image_8_.png" class="gallery-image" alt="Our moment">
+                <img src="image_9_.png" class="gallery-image" alt="Grace">
+                <img src="image_7_.png" class="gallery-image" alt="Grace">
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="goToScreen(0)"></button>
+                <button class="nav-btn" onclick="goToScreen(1)"></button>
+                <button class="nav-btn active" onclick="goToScreen(2)"></button>
+                <button class="nav-btn" onclick="goToScreen(3)"></button>
+            </div>
+        </div>
+
+        <!-- Screen 4: Finale -->
+        <div class="screen screen-finale">
+            <div class="heart-container" id="finaleHearts"></div>
+            <div class="finale-message">Happy Birthday, Grace ❤️</div>
+            <div class="finale-text">Keep smiling, keep shining, and always remember how special you are. ✨</div>
+            <button class="btn" onclick="triggerFireworks()">✨ Celebrate!</button>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="goToScreen(0)"></button>
+                <button class="nav-btn" onclick="goToScreen(1)"></button>
+                <button class="nav-btn" onclick="goToScreen(2)"></button>
+                <button class="nav-btn active" onclick="goToScreen(3)"></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentScreen = 0;
+        const screens = document.querySelectorAll('.screen');
+
+        function goToScreen(screenNum) {
+            screens.forEach(s => s.classList.remove('active'));
+            screens[screenNum].classList.add('active');
+            currentScreen = screenNum;
+
+            // Update nav buttons
+            const allNavBtns = document.querySelectorAll('.nav-btn');
+            allNavBtns.forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === screenNum);
+            });
+
+            // Trigger animations based on screen
+            if (screenNum === 0) {
+                createFloatingHearts('openingHearts', 8);
+            } else if (screenNum === 1) {
+                createFloatingHearts('messageHearts', 5);
+            } else if (screenNum === 2) {
+                createFloatingHearts('galleryHearts', 5);
+            } else if (screenNum === 3) {
+                createFloatingHearts('finaleHearts', 6);
+            }
+        }
+
+        function createFloatingHearts(containerId, count) {
+            const container = document.getElementById(containerId);
+            // Clear old hearts
+            container.innerHTML = '';
+
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+
+                const leftPos = Math.random() * 100;
+                const delay = Math.random() * 1;
+                const tx = (Math.random() - 0.5) * 100;
+
+                heart.style.left = leftPos + '%';
+                heart.style.bottom = '-30px';
+                heart.style.--tx = tx + 'px';
+                heart.style.animationDelay = delay + 's';
+
+                container.appendChild(heart);
+            }
+        }
+
+        function triggerFireworks() {
+            const container = document.querySelector('.container');
+
+            for (let i = 0; i < 50; i++) {
+                const firework = document.createElement('div');
+                firework.className = 'firework firework-burst';
+
+                const colors = ['❤️', '💕', '✨', '🎉'];
+                firework.innerHTML = colors[Math.floor(Math.random() * colors.length)];
+
+                const angle = (Math.PI * 2 * i) / 50;
+                const velocity = 150 + Math.random() * 150;
+                const fx = Math.cos(angle) * velocity;
+                const fy = Math.sin(angle) * velocity;
+
+                firework.style.left = '50%';
+                firework.style.top = '50%';
+                firework.style.--fx = fx + 'px';
+                firework.style.--fy = fy + 'px';
+                firework.style.fontSize = '1.5rem';
+
+                container.querySelector('.heart-container:last-of-type').appendChild(firework);
+
+                setTimeout(() => firework.remove(), 1000);
+            }
+        }
+
+        // Initialize
+        createFloatingHearts('openingHearts', 8);
+    </script>
+</body>
+</html>
