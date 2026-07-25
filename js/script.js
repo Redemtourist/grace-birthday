@@ -265,3 +265,19 @@ section.style.transition="1s";
 observer.observe(section);
 
 });
+
+document.getElementById("replayBtn").addEventListener("click", () => {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    pointer = 0;
+    started = false;
+
+    document.getElementById("typedText").innerHTML = "";
+
+    startTypewriter();
+
+});
