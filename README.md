@@ -59,6 +59,7 @@ assets/music/
 Simply open
 
 index.html
+Updated deployment
 
 or upload to
 
