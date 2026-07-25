@@ -89,7 +89,7 @@ giftButton.addEventListener("click",()=>{
 
 const message = `
 
-My Dearest Grace ❤️,
+My Dearest Gracey ❤️,
 
 Happy Birthday to you.
 
@@ -115,6 +115,7 @@ joy,
 wisdom,
 favor,
 success,
+more adventurous vacations,
 and open doors beyond your imagination.
 
 May your dreams become reality.
@@ -127,18 +128,20 @@ who genuinely love and appreciate you.
 
 Never stop believing in yourself.
 
-Keep shining.
+Keep shining girl.
 
 Keep smiling.
 
 Enjoy every single moment today.
 
 Happy Birthday once again,
-Grace.
+Gracey.
 
-With Love ❤️
+With Lots of Love ❤️
 
-Jonathan
+Yours Truely...
+
+Jirika
 
 `;
 
