@@ -1,0 +1,227 @@
+/* ==========================================
+   RESPONSIVE.CSS
+   ========================================== */
+
+/* Large Tablets */
+@media (max-width: 1200px){
+
+.home-content{
+    width:90%;
+}
+
+.gallery{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.paper{
+    width:90%;
+}
+
+}
+
+
+/* Tablets */
+
+@media (max-width:900px){
+
+.home-content h1{
+    font-size:60px;
+}
+
+.home-content h2{
+    font-size:28px;
+}
+
+.title{
+    font-size:48px;
+}
+
+.gallery{
+    grid-template-columns:1fr;
+}
+
+.card img{
+    height:420px;
+}
+
+.paper{
+    padding:35px;
+}
+
+#cakeEmoji{
+    font-size:130px;
+}
+
+}
+
+
+/* Phones */
+
+@media (max-width:768px){
+
+section{
+    padding:60px 18px;
+}
+
+.home-content{
+
+padding:30px 20px;
+
+border-radius:20px;
+
+}
+
+.home-content h1{
+
+font-size:46px;
+
+}
+
+.home-content h2{
+
+font-size:22px;
+
+line-height:1.5;
+
+}
+
+.home-content p{
+
+font-size:16px;
+
+}
+
+button{
+
+width:100%;
+
+font-size:17px;
+
+padding:16px;
+
+}
+
+.title{
+
+font-size:42px;
+
+}
+
+.card{
+
+padding:15px;
+
+}
+
+.card img{
+
+height:320px;
+
+}
+
+.paper{
+
+padding:25px;
+
+line-height:1.8;
+
+}
+
+.paper h2{
+
+font-size:42px;
+
+}
+
+.paper p{
+
+font-size:16px;
+
+}
+
+#cakeEmoji{
+
+font-size:100px;
+
+}
+
+#ending h1{
+
+font-size:52px;
+
+}
+
+#ending h2{
+
+font-size:30px;
+
+}
+
+#ending p{
+
+font-size:17px;
+
+}
+
+}
+
+
+/* Small Phones */
+
+@media (max-width:480px){
+
+.home-content h1{
+
+font-size:38px;
+
+}
+
+.home-content h2{
+
+font-size:20px;
+
+}
+
+.title{
+
+font-size:36px;
+
+}
+
+.card img{
+
+height:260px;
+
+}
+
+.paper h2{
+
+font-size:35px;
+
+}
+
+.paper{
+
+padding:20px;
+
+}
+
+#cakeEmoji{
+
+font-size:80px;
+
+}
+
+#ending h1{
+
+font-size:42px;
+
+}
+
+#ending h2{
+
+font-size:26px;
+
+}
+
+}

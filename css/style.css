@@ -1,0 +1,515 @@
+/* ===========================
+   GLOBAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#0f0f16;
+    color:white;
+    overflow-x:hidden;
+
+}
+
+
+/* ===========================
+BACKGROUND
+=========================== */
+
+body::before{
+
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top,#8e2de2 0%,transparent 40%),
+
+    radial-gradient(circle at bottom,#ff4b91 0%,transparent 40%),
+
+    #090909;
+
+    z-index:-2;
+
+}
+
+body::after{
+
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    z-index:-1;
+
+}
+
+
+
+/* ===========================
+LOADER
+=========================== */
+
+#loader{
+
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:25px;
+
+}
+
+.heart-loader{
+
+font-size:70px;
+
+animation:beat 1s infinite;
+
+}
+
+@keyframes beat{
+
+0%{transform:scale(1);}
+
+50%{transform:scale(1.25);}
+
+100%{transform:scale(1);}
+
+}
+
+
+
+/* ===========================
+SECTIONS
+=========================== */
+
+section{
+
+min-height:100vh;
+
+padding:80px 25px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+}
+
+
+
+/* ===========================
+HOME
+=========================== */
+
+#home{
+
+position:relative;
+
+}
+
+.home-content{
+
+max-width:850px;
+
+backdrop-filter:blur(15px);
+
+background:rgba(255,255,255,.08);
+
+padding:60px;
+
+border-radius:30px;
+
+box-shadow:0 0 40px rgba(255,105,180,.25);
+
+}
+
+.home-content h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:80px;
+
+color:#ffd369;
+
+margin-bottom:15px;
+
+}
+
+.home-content h2{
+
+font-size:36px;
+
+margin-bottom:20px;
+
+color:white;
+
+}
+
+.home-content p{
+
+font-size:20px;
+
+line-height:1.8;
+
+color:#ddd;
+
+margin-bottom:35px;
+
+}
+
+
+
+/* ===========================
+BUTTON
+=========================== */
+
+button{
+
+padding:18px 45px;
+
+border:none;
+
+border-radius:60px;
+
+font-size:18px;
+
+cursor:pointer;
+
+background:linear-gradient(45deg,#ff4b91,#ffb347);
+
+color:white;
+
+transition:.35s;
+
+box-shadow:0 0 30px rgba(255,105,180,.5);
+
+}
+
+button:hover{
+
+transform:translateY(-5px) scale(1.05);
+
+box-shadow:0 15px 40px rgba(255,105,180,.6);
+
+}
+
+
+
+/* ===========================
+SECTION TITLES
+=========================== */
+
+.title{
+
+font-family:'Great Vibes',cursive;
+
+font-size:65px;
+
+color:#ffd369;
+
+margin-bottom:60px;
+
+}
+
+
+
+/* ===========================
+PHOTO GALLERY
+=========================== */
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:35px;
+
+width:100%;
+
+max-width:1300px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.08);
+
+padding:20px;
+
+border-radius:25px;
+
+backdrop-filter:blur(15px);
+
+transition:.4s;
+
+overflow:hidden;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.card img{
+
+width:100%;
+
+height:340px;
+
+object-fit:cover;
+
+border-radius:18px;
+
+}
+
+.card p{
+
+margin-top:18px;
+
+font-size:16px;
+
+line-height:1.7;
+
+color:#eee;
+
+}
+
+
+
+/* ===========================
+LETTER
+=========================== */
+
+.paper{
+
+background:#fffdf7;
+
+color:#444;
+
+padding:55px;
+
+border-radius:25px;
+
+max-width:900px;
+
+line-height:2;
+
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+}
+
+.paper h2{
+
+font-family:'Great Vibes',cursive;
+
+font-size:60px;
+
+color:#b03060;
+
+margin-bottom:30px;
+
+}
+
+
+
+/* ===========================
+CAKE
+=========================== */
+
+#cakeEmoji{
+
+font-size:180px;
+
+margin:30px 0;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+#cakeEmoji:hover{
+
+transform:scale(1.1);
+
+}
+
+
+
+/* ===========================
+ENDING
+=========================== */
+
+#ending h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:90px;
+
+color:#ffd369;
+
+margin-bottom:20px;
+
+}
+
+#ending h2{
+
+font-size:50px;
+
+margin-bottom:20px;
+
+}
+
+#ending p{
+
+max-width:700px;
+
+line-height:2;
+
+font-size:20px;
+
+color:#ddd;
+
+margin-bottom:35px;
+
+}
+
+
+
+/* ===========================
+FLOATING HEARTS
+=========================== */
+
+.heart{
+
+position:fixed;
+
+bottom:-50px;
+
+font-size:22px;
+
+animation:floatUp linear forwards;
+
+pointer-events:none;
+
+opacity:.85;
+
+}
+
+@keyframes floatUp{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:0;
+
+}
+
+15%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+
+
+/* ===========================
+MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.home-content{
+
+padding:35px 25px;
+
+}
+
+.home-content h1{
+
+font-size:55px;
+
+}
+
+.home-content h2{
+
+font-size:25px;
+
+}
+
+.title{
+
+font-size:45px;
+
+}
+
+.paper{
+
+padding:30px;
+
+}
+
+.paper h2{
+
+font-size:45px;
+
+}
+
+#cakeEmoji{
+
+font-size:120px;
+
+}
+
+#ending h1{
+
+font-size:60px;
+
+}
+
+#ending h2{
+
+font-size:34px;
+
+}
+
+}
