@@ -6,7 +6,7 @@ const cursor = "|";
 
 const birthdayLetter = `
 
-My Dearest Grace ❤️,
+My Dearest Gracey ❤️,
 
 Happy Birthday.
 
@@ -25,7 +25,8 @@ I pray that this new year brings you joy,
 peace,
 good health,
 success,
-favor
+favor,
+more adventurous vacations,
 and abundant blessings.
 
 May God continue to guide your path
@@ -40,8 +41,9 @@ Never stop being the amazing woman you are.
 Happy Birthday once again.
 
 With Love ❤️
+Yours truly,
 
-Jonathan
+Jirika...
 
 `;
 
